@@ -24,22 +24,30 @@
 <canvas id="canvas" tabindex="1"></canvas>
 <div id="err"></div>
 
-<script type="module">
-    import init from "./ecosim.js";
+<script src="./ecosim.js"></script>
+<script>
+    const start = async () => {
+        try {
 
-    const err = document.getElementById("err");
-    const showErr = (e) => {
-        err.style.display = "block";
-        err.textContent = (e?.stack || e?.message || String(e));
-        console.error(e);
+            if (typeof wasm_bindgen === "function") {
+                await wasm_bindgen("./ecosim_bg.wasm");
+                return;
+            }
+
+
+            if (typeof init === "function") {
+                await init("./ecosim_bg.wasm");
+                return;
+            }
+
+            throw new Error("ERRORRRR");
+        } catch (e) {
+            const err = document.getElementById("err");
+            err.style.display = "block";
+            err.textContent = (e?.stack || String(e));
+            console.error(e);
+        }
     };
 
-    window.addEventListener("error", (e) => showErr(e.error || e));
-
-    init().catch(showErr);
-
-    const c = document.getElementById("canvas");
-    c.addEventListener("pointerdown", () => c.focus());
+    start();
 </script>
-</body>
-</html>

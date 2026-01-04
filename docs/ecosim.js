@@ -1,4 +1,4 @@
-import * as __wbg_star0 from 'env';
+import * as __wbg_star0 from './env.js';
 
 let wasm;
 

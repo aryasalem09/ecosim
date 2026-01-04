@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ecosim</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: #0b0c11;
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="glcanvas" tabindex="1"></canvas>
+
+<script src="https://not-fl3.github.io/miniquad-samples/gl.js"></script>
+<script>
+    load("ecosim.wasm");
+</script>
+</body>
+</html>

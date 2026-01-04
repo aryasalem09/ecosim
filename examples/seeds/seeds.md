@@ -1,0 +1,2 @@
+- seed: 123456789 — predator collapse after ~2k steps
+- seed: 987654321 — stable oscillation

@@ -1,3 +1,4 @@
+![demo](examples/demo.gif)
 # ecosim
 this was a fun rust project i've been working on in my free time. its a sim of the "real world" with rudimentary plants, herbivores, and predators. they all follow a set of rules, and you can see how their population changes over time. 
 

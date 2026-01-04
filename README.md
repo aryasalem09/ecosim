@@ -11,10 +11,10 @@ again, this is all pretty self explanatory, and you can check the graphs for cha
 ## fun features
   - you can track a singular speci by clicking on it and you can see it's seperate stats
   - there are numerous graphs for:
-    -> herbivore vs predator population
-    -> births and deaths per tick
-    -> average plant density
-    -> average energy per species
+    - herbivore vs predator population
+    - births and deaths per tick
+    - average plant density
+    - average energy per species
   - there's seeds so you can run the same sim at different times, just be sure to save it somewhere
   - you can check if the # of species will lag on your computer or not (if unsure, just go for a way lower number)
 

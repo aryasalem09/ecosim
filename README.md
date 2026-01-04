@@ -35,5 +35,9 @@ again, this is all pretty self explanatory, and you can check the graphs for cha
   - ima update this later
 
 ## Running it locally
-```bash
-cargo run
+clone the repo
+   - ```git clone https://github.com/aryasalem09/ecosim.git ```
+   - ```cd ecosim```
+run this command
+  - ```cargo run --release``` (just so it's smooth, you can run ```cargo run``` aswell)
+

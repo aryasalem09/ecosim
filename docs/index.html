@@ -1,28 +1,45 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>ecosim</title>
     <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-            background: #0b0c11;
-        }
-        canvas {
-            width: 100vw;
-            height: 100vh;
-            display: block;
+        html, body { margin: 0; height: 100%; background: #0b0f14; overflow: hidden; }
+        canvas { width: 100vw; height: 100vh; display: block; outline: none; }
+        #err {
+            position: fixed;
+            left: 12px; right: 12px; bottom: 12px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: rgba(255, 80, 80, 0.14);
+            color: #ffd6d6;
+            font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            white-space: pre-wrap;
+            display: none;
         }
     </style>
 </head>
 <body>
-<canvas id="glcanvas" tabindex="1"></canvas>
+<canvas id="canvas" tabindex="1"></canvas>
+<div id="err"></div>
 
-<script src="https://not-fl3.github.io/miniquad-samples/gl.js"></script>
-<script>
-    load("ecosim.wasm");
+<script type="module">
+    import init from "./ecosim.js";
+
+    const err = document.getElementById("err");
+    const showErr = (e) => {
+        err.style.display = "block";
+        err.textContent = (e?.stack || e?.message || String(e));
+        console.error(e);
+    };
+
+    window.addEventListener("error", (e) => showErr(e.error || e));
+
+    init().catch(showErr);
+
+    const c = document.getElementById("canvas");
+    c.addEventListener("pointerdown", () => c.focus());
 </script>
 </body>
 </html>
